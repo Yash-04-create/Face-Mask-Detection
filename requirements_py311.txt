@@ -1,0 +1,7 @@
+tensorflow-cpu>=2.15.0
+imutils
+numpy
+opencv-python
+matplotlib
+scipy
+scikit-learn

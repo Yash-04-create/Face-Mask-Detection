@@ -1,4 +1,7 @@
 # import the necessary packages
+import os
+os.environ['TF_USE_LEGACY_KERAS'] = '1'
+os.environ["KERAS_BACKEND"] = "tensorflow"
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.models import load_model
@@ -77,7 +80,7 @@ weightsPath = r"face_detector\res10_300x300_ssd_iter_140000.caffemodel"
 faceNet = cv2.dnn.readNet(prototxtPath, weightsPath)
 
 # load the face mask detector model from disk
-maskNet = load_model("mask_detector.model")
+maskNet = load_model("mask_detector.keras", compile=False)
 
 # initialize the video stream
 print("[INFO] starting video stream...")

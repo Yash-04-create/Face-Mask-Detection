@@ -20,7 +20,7 @@ INIT_LR = 1e-4
 EPOCHS = 20
 BS = 32
 
-DIRECTORY = r"D:\Face-Mask-Detection\dataset"
+DIRECTORY = os.path.join(os.getcwd(), "dataset")
 CATEGORIES = ["with_mask", "without_mask"]
 
 # load and preprocess images
@@ -108,7 +108,7 @@ print(classification_report(testY.argmax(axis=1), predIdxs, target_names=lb.clas
 
 # save the trained model
 print("[INFO] saving mask detector model...")
-model.save("mask_detector.keras")  # modern format
+model.save("mask_detector.keras")
 
 # plot training results
 N = EPOCHS
